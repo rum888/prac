@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- th:ifがtrueの時だけh１が表示される -->
+	<h1 th:if="${suzuki}">ようこそ鈴木Java吾郎さん！</h1>
+	<form action="/if" method="POST">
+		<h2>鈴木Java吾郎さんですか？</h2>
+		<input type="submit" value="はい">
+	</form>
+</body>
+</html>

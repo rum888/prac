@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>タイトル</title>
+<!-- ↓cssくっつけてる -->
+<link th:href="@{css/stylesheet.css}" rel="stylesheet">
+</head>
+<body>
+	<h1>練習</h1>
+	<!--↓テンプレートフラグメント埋め込み文
+	header.htmlで書いた<h1>タグが反映される。  -->
+	<div th:include="header :: header_part"></div>
+	
+		<div class="profile">
+			<h1>プロフィール</h1>
+			<h2 th:text="${name}">佐藤html太郎</h2>
+			<h2 th:text="${age}">35歳</h2>
+			<h2 th:text="${height}">207cm</h2>
+			
+		</div>
+		<form action="/" method="POST">
+		<label>名前</label><input type="text" name="nameVal" th:value="${name}">
+		<label><br>年齢</label><input type="text" name="ageVal">
+		<label><br>身長</label><input type="text" name="heightVal">
+		<input type="submit" value="送信">
+		</form>
+
+</body>
+</html>

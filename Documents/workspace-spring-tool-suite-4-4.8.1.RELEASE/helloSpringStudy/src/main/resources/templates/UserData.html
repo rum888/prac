@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" action="/data" th:object="${formModel}">
+<h1>新規ユーザー登録</h1>
+<p th:text="${#dates.format(new java.util.Date(),'yyyy/MM/dd')}"></p> 
+<labeL>名前</labeL><input type="text" name="name">
+<labeL>年齢</labeL><input type="text" name="age">
+<labeL>メール</labeL><input type="text" name="mail">
+<labeL>パスワード</labeL><input type="pass" name="pass">
+<input type="submit" value="登録">
+</form>
+<h1>顧客リスト</h1>
+<table>
+<tr><th>登録者番号</th><th>名前</th><th>年齢</th><th>メールアドレス
+</th><th>パスワード</th></tr>
+<tr th:each="c : ${customers}">
+<td th:text="${c.id}"></td>
+<td th:text="${c.name}"></td>
+<td th:text="${c.age}"></td>
+<td th:text="${c.mail}"></td>
+<td>見せられないよ</td>
+
+<!--　↓Day24(p21~23) delete-->
+<td><form method="post" action="data/delete/">
+ 	<input type="hidden" name="id" th:value="${c.id}">
+ 	<input type="submit" value="削除">
+	</form></td>
+<!-- 更新ボタン追加  -->
+	<td>
+	<a href="/mypage3/2"><input type="submit" value="更新"></a>
+	</td>
+</tr>
+</table>
+</body>
+</html>

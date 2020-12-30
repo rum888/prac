@@ -1,0 +1,19 @@
+<!--Day24 p9~11  -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<h1>マイページ</h1>
+	<table>
+		<tr><th>登録者番号</th><th>名前</th><th>メールアドレス</th></tr>
+		<tr th:object="${user}">
+		<td th:text="*{id}"></td>
+		<td th:text="*{name}"></td>
+		<td th:text="*{mail}"></td>
+		</tr>
+	</table>
+</body>
+</html>
